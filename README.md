@@ -4,9 +4,6 @@
 
 > This is a basic Axie energy counter. This might be useful for Arena/PVP.
 
-## Code Samples
-
-
 
 ## Installation
 
