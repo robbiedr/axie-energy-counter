@@ -4,11 +4,25 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Axie Energy Counter">
+    <meta property="og:description" content="Axie Energy Counter">
+    <meta property="og:image" content=https://miro.medium.com/max/1400/1*WLjWTJ9Bv4LWbrlKb0O-Gg.png>
+    <meta property="og:url" content="http://www.axie-energy-counter.com.s3-website-us-east-1.amazonaws.com">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Axie Energy Counter!</title>
+    <title>Axie Energy Counter</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJER85WM2X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-TJER85WM2X');
+    </script>
   </head>
   <body>
     <div class="container" style="padding-top: 12px;">
@@ -38,10 +52,10 @@
       <div class="row text-center d-flex justify-content-center mt-3">
         <ul class="list-group" style="width: 18rem;">
           <li class="list-group-item list-group-item-primary"><small>New Game = Resets energy to 3 (hotkey: space or numpad 0)</small></li>
-          <li class="list-group-item list-group-item-info"><small>> = Next round, adds 2 energy (hotkey: &#8593;)</small></li>
-          <li class="list-group-item list-group-item-danger"><small>- = Minus 1 energy (hotkey: &#8592;)</small></li>
-          <li class="list-group-item list-group-item-warning"><small>0 = Drain energy, set energy to 0 (hotkey: &#8595;)</small></li>
-          <li class="list-group-item list-group-item-success"><small>+ = Add 1 energy (hotkey: &#8594;</small></li>
+          <li class="list-group-item list-group-item-info"><small>> = Next round, adds 2 energy (hotkey: &#8593; or w)</small></li>
+          <li class="list-group-item list-group-item-danger"><small>- = Minus 1 energy (hotkey: &#8592; or a)</small></li>
+          <li class="list-group-item list-group-item-warning"><small>0 = Drain energy, set energy to 0 (hotkey: &#8595; or s)</small></li>
+          <li class="list-group-item list-group-item-success"><small>+ = Add 1 energy (hotkey: &#8594; or d)</small></li>
         </ul>
       </div>
       <br>
@@ -71,16 +85,28 @@
           case 96: // numpad 0
             newGame();
             break;  
-          case 37: //arrow left
+          case 37: // arrow left
             minusEnergy(1);
             break;
-          case 38: //arrow up
+          case 38: // arrow up
             addEnergy(2);
             break;
           case 39: // arrow right
             addEnergy(1);
             break;
           case 40: // arrow down
+            minusEnergy(-1);
+            break;
+          case 65: // a
+            minusEnergy(1);
+            break;
+          case 87: // w
+            addEnergy(2);
+            break;
+          case 68: // d
+            addEnergy(1);
+            break;
+          case 83: // s
             minusEnergy(-1);
             break;
         }
